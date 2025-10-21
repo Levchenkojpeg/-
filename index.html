@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URBAN TEA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* For custom scrollbar in CategoryScroller */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #1A1A1A;
+        color: #E0E0E0;
+        overflow-x: hidden;
+      }
+
+      .bg-blob {
+        position: fixed;
+        z-index: -1;
+        opacity: 0.3;
+        filter: blur(120px);
+        will-change: transform;
+      }
+
+      .blob-1 {
+        width: 600px;
+        height: 600px;
+        top: -150px;
+        left: -200px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 579 568' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M413.754 59.4346C518.729 119.561 568.175 277.831 513.931 385.201C459.687 492.571 294.945 515.897 186.721 465.111C78.4972 414.325 33.5991 289.428 55.485 183.161C77.3709 76.894 172.937 -43.1906 280.95 16.9351C325.32 40.5284 353.948 22.8911 413.754 59.4346Z' fill='%23FF6B00'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: float1 25s infinite alternate ease-in-out;
+      }
+
+      .blob-2 {
+        width: 700px;
+        height: 700px;
+        bottom: -200px;
+        right: -250px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 665 683' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M552.5 137.5C626.5 241 626 430 502.5 522.5C379 615 132 611 60 503C-12 395 -58.5 182.5 64 80.5C186.5 -21.5 478.5 34 552.5 137.5Z' fill='%23FF6B00'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: float2 30s infinite alternate ease-in-out;
+      }
+      
+      @keyframes float1 {
+        from { transform: translate(-20px, -10px) rotate(0deg); }
+        to { transform: translate(20px, 30px) rotate(20deg); }
+      }
+      @keyframes float2 {
+        from { transform: translate(10px, 20px) rotate(0deg); }
+        to { transform: translate(-30px, -10px) rotate(-15deg); }
+      }
+      
+      @keyframes pop {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.4); }
+      }
+
+      .animate-pop {
+        animation: pop 0.4s ease-in-out;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
+    "vite": "https://aistudiocdn.com/vite@^7.1.11",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.0.4",
+    "path": "https://aistudiocdn.com/path@^0.12.7"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
